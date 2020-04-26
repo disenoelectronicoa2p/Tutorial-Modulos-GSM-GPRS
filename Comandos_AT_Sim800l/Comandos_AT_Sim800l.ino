@@ -5,7 +5,7 @@
   Video 6: Comandos AT en el Sim800l. Video 6.    *
                                                   *
   Se utiliza la tarjetade Arduino Mega 2560       *
-  El módulo sim800l y 2 baterías de litho de 3.7V *
+  El módulo sim800l y 2 baterías de litio de 3.7V *
                                                   *
   Autor: Diseño Electrónico A2P                   *
 --------------------------------------------------*

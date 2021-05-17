@@ -1,0 +1,171 @@
+Comunicacion entre dispositivo
+AT
+
+OK
+-------------------------------------------
+Estado de registro de red
+
+AT+CGREG=? 
++CGREG: (0-2)
+
+AT+CGREG?
++CGREG: 0,1
+-------------------------------------------
+Estado de la bateria
+
+AT+CBC=?
++CBC: (0-2),(1-100),(voltage)
+
+AT+CBC
++CBC: 0,100,4273
+-------------------------------------------
+Calidad de señal
+
+AT+CSQ=?
++CSQ: (0-31,99),(0-7,99)
+
+AT+CSQ
++CSQ: 21,0
+------------------------------------------
+Velocidad comunicacion Serial
+
+AT+IPR=?
++IPR: (),(0,1200,2400,4800,9600,19200,38400,57600,115200,230400,460800)
+
+AT+IPR?
+
+AT+IPR=115200
+------------------------------------------
+Operador movil
+
+AT+COPS=?
++COPS: (2,"Occel SA","COMCEL","732101"),,(0-4),(0-2)
+
+AT+COPS?
++COPS: 0,0,"Occel SA"
+------------------------------------------
+Informacion del producto
+
+Firware
+AT+GMR
+Revision:1418B04SIM800L24
+
+
+ATI
+SIM800 R14.18
+
+Fabricante
+AT+CGMI
+SIMCOM_Ltd
+
+Marca
+SIMCOM SIM800L
+
+Empresa
+Shanghai Simcom Ltd
+
+Version
+AT+CGMR
+
+------------------------------------------
+Numero de serie IMEI
+
+AT+GSN
+867XXXXXXXXXX15
+
+OK
+------------------------------------------
+Configurar Fecha y Hora
+
+AT+CCLK?
++CCLK: "04/01/01,04:36:14-05"
+
+AT+CCLK="19/09/30,17:11:20-05"
++CCLK: "19/10/22,18:15:27-05"
+------------------------------------------
+Leer mensaje recibido
+
+Mensaje modo texto
+AT+CMGF=1     
+OK
+
+Leer el mensaje en la posicion X
+AT+CMGR=X
+
+AT+CMGR=1
+
+OK
+
+Mostrar todos los mensajes
+AT+CMGL="ALL"
+
+AT+CMGL="ALL"
+OK
+
+AT+CMGL="REC READ"
+
+Ejemplo leer:
++CMGL: 7,"REC UNREAD","313XXXXXXX","","21/03/12,16:42:29-20"
+Hola, Bienvenido a su canal Diseno Electronico A2P
+
+
+Eliminar un mensaje en la posicion X
+AT+CMGD=X
+
+AT+CMGD=1
+OK
+
+
+Eliminar todos los mensajes
+AT+CMGD=1,4
+
+AT+CMGD=1,4
+OK
+
+---------------------------------
+Llegada de mensaje
++CMTI: "SM",1
+
+------------------------------------------------
+Identificador de Llamadas
+AT+CLIP=1
+
+------------------------------------------------
+ATD313XXXXXXX;       Lamar
+ATH                  Colgar Llamada
+
+------------------------------------------------
+Servicio de datos suplementarios estructurados:
+
+AT+CUSD=1,"*611#",15
+
+Conocer saldo de manera rapida "Claro"
+AT+CUSD=1,"*103#",15
+
++CUSD: 0, "Saldo $3002 Vig 54 dias + $0 Promo 0 dias.  Total carga todo destino $3002", 15
+
+Conocer numero movil en prepago Claro Colombia
+AT+CUSD=1,"*595#",15
+
+-------------------------------------------------------
+NO CARRIER
+ATD+57313XXXXXXX
+
+NO CARRIER
+ATD+57313XXXXXXX
+
+NO CARRIER
+ATD+57313XXXXXXX;
+
+OK
+
+NO CARRIER
+ATD311XXXXXXX;
+
+OK
+ath
+
+OK
+ATD313XXXXXXX;
+
+OK

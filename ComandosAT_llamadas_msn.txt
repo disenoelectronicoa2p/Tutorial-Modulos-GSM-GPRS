@@ -1,0 +1,69 @@
+Comando para llamdas
+
+Estado de registro de red
+AT+CREG?
+
+Respuestas:
++CREG: 0,1
+
++CREG: 0,5
+
+Activar identificador de llamadas
+AT+CLIP=1
+
+LLamada ntrante
+RING
+
++CLIP: "313XXXXXXX",129,"",0,"Sim800l",0
+
+
+NO CARRIER
+
+Marcar Numero
+ATD313XXXXXXX;
+
+OK
+
+Colgal LLamada
+ATH
+-----------------------------------
+Comandos para mensajes
+
+Visualizar mensaje modo texto
+AT+CMGF=1
+
+Mensaje modo PDU
+AT+CMGF=0
+
+Leer el mensaje en la posicion X
+AT+CMGR=X
+
+Mostrar todos los mensajes
+AT+CMGL="ALL"
+
+AT+CMGL="REC READ"
+
+Eliminar todos los mensajes
+AT+CMGD=1,4
+
+Mensaje se almacena en una posicion X
+AT+CNMI=2,1,0,0,0
+
++CMTI: "SM",1
+
+Transmisión de mensaje directamente al puerto serial del dispositivo.
+AT+CNMI=2,2,0,0,0
+
++CMT: "313XXXXXXX","Sim800l","21/05/22,20:43:12-20"
+Prueba2
+
+Enviar mensaje
+AT+CMGS="+57313XXXXXXX"
+
+Serial.write(0x1A); //ctrl+z
+
+Menú sumplementario en operador Claro movil: *611
+AT+CUSD=1,"*611#",15
+
+Conocer saldo de manera rapida Claro movil
+AT+CUSD=1,"*103#",15

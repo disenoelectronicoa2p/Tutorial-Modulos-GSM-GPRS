@@ -169,3 +169,71 @@ OK
 ATD313XXXXXXX;
 
 OK
+
+------------------------------------------------------------
+AT+CCLK?
++CCLK: "14/07/21,22:52:27-05"
+
+AT+CCLK="21/07/19,10:51:20-05"
+AT+CCLK="21/07/19,08:43:20-05"
+
+Establecer y guardar informacion RTC red celular.
+AT+CLTS=1;&W   
+
+OK
+
+AT+CLTS?
++CLTS: 1
+OK
+
+Guardar configuracion
+AT&W        
+
+AT+CFUN=1,1
+OK
+
+Call Ready
+
+SMS Ready
+
+AT+SAPBR=3,1,"Contype","GPRS"                Establecer parámetro de portador
+AT+SAPBR=3,1,"APN","internet.comcel.com.co"  Establecer contexto de portador
+AT+SAPBR=1,1                                 Contexto de portador activo
+AT+SAPBR=2,1                                 Leer parámetro de portador
+
+AT+CLBSCFG=0,1                               Obtener ID de cliente
+AT+CLBSCFG=0,2                               Get Times ha utilizado el comando de posicionamiento
+AT+CLBSCFG=0,3                               Obtener la dirección del servidor LBS
+AT+CLBSCFG=1,3,"lbs-simcom.com:3002"         Establecer la dirección del servidor LBS
+AT+CLBS=1,1                                  Obtenga la longitud, latitud y precisión actuales
+AT+CLBS=4,1                                  Obtenga la longitud, latitud y precisión actuales
+                                             y fecha y hora
+AT+CLBS=3,1                                  Obtenga tiempos de acceso
+
+AT+SAPBR=0,1                                 Desactivar contexto de portadora
+
+-----------------------------------------------------------------------------------------------------------
+AT+CLBS=9,1                                 Si la información de la posición es un error, el cliente puede
+                                            utilice este comando para informar. Celda de informe
+                                            información de error de posicionamiento al servidor.
+
+AT+CLBS=9,1,0.000000,0.000000,0           Informar la información de la celda de posicionamiento y
+                                            realmente longitud y latitud al servidor.
+
+-------------------------------------------------------
+OBTENCION DE DATOS DE GPS CON SERVICIO ANTIGUO (google)
+
+AT+CGATT=1
+AT+SAPBR=3,1,"Contype","GPRS"
+AT+SAPBR=3,1,"APN","internet.comcel.com.co"
+AT+SAPBR=1,1
+AT+SAPBR=2,1
+
+AT+CIPGSMLOC=1,1
+
+
+AT+CIPGSMLOC=1,1    //to get gsm location, time and date.
+
+AT+CIPGSMLOC=2,1    //to get gsm time and date
+
+AT+SAPBR=0,1        //to deactivate bearer profile

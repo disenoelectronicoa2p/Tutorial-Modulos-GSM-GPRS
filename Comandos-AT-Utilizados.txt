@@ -237,3 +237,26 @@ AT+CIPGSMLOC=1,1    //to get gsm location, time and date.
 AT+CIPGSMLOC=2,1    //to get gsm time and date
 
 AT+SAPBR=0,1        //to deactivate bearer profile
+
+--------------------------------------------------------
+CONSUMIR SERVICIO CON MODULO SIM800L
+
+AT+SAPBR=3,1,"Contype","GPRS"                 Establecer parámetro de portador
+AT+SAPBR=3,1,"APN","internet.comcel.com.co"   Establecer contexto de portador
+AT+SAPBR=1,1                                  Contexto de portador activo
+AT+SAPBR=2,1                                  Leer parámetro de portador
+
+AT+HTTPINIT                                   Se inicia el servicio HTTP
+AT+HTTPPARA="CID",1                           Para llamar HTTP
+
+AT+HTTPPARA="URL","http://pruebasim800lphp.atwebpages.com/pruebasim800l.php?Tu_nombre=Messi"
+
+AT+HTTPACTION=0                               Realiza acciones HTTP (GET)
+AT+HTTPREAD                                   Leer respuesta del servidor
+AT+HTTPTERM                                   Finalizar sesión HTTP
+
+AT+SAPBR=0,1                                  
+
+AT+HTTPPARA="URL","www.sim.com"
+AT+HTTPPARA="URL","https://jsonplaceholder.typicode.com/users"
+AT+HTTPPARA="URL","https://www.m2msupport.net/m2msupport/http_get_test.php"

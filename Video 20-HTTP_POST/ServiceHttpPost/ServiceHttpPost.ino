@@ -22,8 +22,11 @@ void setup() {
 
   measurementTime = 20000; // 20 segundos
 
-  //Valida si el sim800l se concecto correctamente a la red movil
-  sendAtConectionRed(); 
+  /**
+  **Valida si el sim800l se concecto correctamente a la red movil
+  **Descomentar la siguiente linea de codigo "sendAtConectionRed()" si se requiere validar esta accion.
+  **/
+  //sendAtConectionRed(); 
 
   //Cierra la sesión GPRS si esta activa.
   enviarComandoAT("AT+SAPBR=0,1", "OK", 3000);  
@@ -111,6 +114,7 @@ void sendAtConectionRed() {
   bool answerAtConectionRed = false;
   int errorAtConectionRed = 0;
   while ( !answerAtConectionRed ) {
+    //La respuesta al comando AT+CREG? puede variar, segun el operador movil.
     answerAtConectionRed = enviarComandoAT("AT+CREG?", "+CREG: 0,1", 1000) || enviarComandoAT("AT+CREG?", "+CREG: 0,5", 1000);
     errorAtConectionRed++;
     if (errorAtConectionRed > 8) {
